@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
+  <robot name="SR80">
+
+    <link name="base_link">
+     <!--  <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.001"/>
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      </inertial>-->
+      <visual name="Part1">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://sr80_description/meshes/dae/Part1.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Material"/>
+      </visual>
+      <visual name="Gear1">
+        <origin xyz="0 0 0.2" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://sr80_description/meshes/dae/GearBox1.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Material"/>
+      </visual>
+      <collision name="Part1">
+        <origin xyz="-0.00064 0 0.00217" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.70858 0.59761 0.21675"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="L1">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.001"/>
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      </inertial>
+      <visual name="root">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.04 0.04 0.04"/>
+        </geometry>
+      </visual>
+      <visual name="Part2">
+        <origin xyz="0 0 -0.320" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://sr80_description/meshes/dae/Part2.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Material"/>
+      </visual>
+      <collision name="Part2">
+        <origin xyz="0.00093 0 -0.00161" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.59707 0.44995 0.50013"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="L2">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.001"/>
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      </inertial>
+      <visual name="A2">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.04 0.04 0.04"/>
+        </geometry>
+      </visual>
+      <visual name="Part3">
+        <origin xyz="0 0 0.1" rpy="0 0 1.5708"/>
+        <geometry>
+          <mesh filename="package://sr80_description/meshes/dae/Part3.dae" scale="1.1 1.0 1.0"/>
+        </geometry>
+        <material name="Material"/>
+      </visual>
+      <collision name="Part3">
+        <origin xyz="0.0 0.6 0.26" rpy="0 0 1.5708"/>
+        <geometry>
+          <box size="1.19706 0.29514 0.16497"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="L3">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.001"/>
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      </inertial>
+      <visual name="A3">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.04 0.04 0.04"/>
+        </geometry>
+      </visual>
+      <visual name="Part4">
+        <origin xyz="0 0 0.15" rpy="0 0 1.5708"/>
+        <geometry>
+          <mesh filename="package://sr80_description/meshes/dae/Part4.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Material"/>
+      </visual>
+      <collision name="Part4">
+        <origin xyz="0.00072 0.00263 -4e-05" rpy="-1.5708 0 -1.5708"/>
+        <geometry>
+          <box size="0.49911 0.352 0.29553"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="L4">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.001"/>
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      </inertial>
+      <visual name="A4">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.04 0.04 0.04"/>
+        </geometry>
+      </visual>
+      <visual name="Part5">
+        <origin xyz="0 0 0.25" rpy="0 0 -1.5708"/>
+        <geometry>
+          <mesh filename="package://sr80_description/meshes/dae/Part5.1.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Material"/>
+      </visual>
+      <visual name="Part6">
+        <origin xyz="0 0 0.7" rpy="0 0 -1.5708"/>
+        <geometry>
+          <mesh filename="package://sr80_description/meshes/dae/Part6.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Material"/>
+      </visual>
+      <collision name="Part5">
+        <origin xyz="0.0 0.0 0.2" rpy="0 0 -1.5708"/>
+        <geometry>
+          <box size="0.2 0.2 0.47458"/>
+        </geometry>
+      </collision>
+      <collision name="Part6">
+        <origin xyz="0.0 0.0 0.68514" rpy="0 0 -1.5708"/>
+        <geometry>
+          <box size="0.22 0.32349 0.46343"/>
+        </geometry>
+      </collision>      
+    </link>
+
+    <link name="L5">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.001"/>
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      </inertial>
+      <visual name="A5">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.04 0.04 0.04"/>
+        </geometry>
+      </visual>
+      <visual name="Part7">
+        <origin xyz="0 0 0.0675" rpy="3.14159 0 -1.5708"/>
+        <geometry>
+          <mesh filename="package://sr80_description/meshes/dae/Part7.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Material"/>
+      </visual>
+      <collision name="Part7">
+        <origin xyz="0.00068 6e-05 0.00021" rpy="3.14159 0 -1.5708"/>
+        <geometry>
+          <box size="0.15311 0.21115 0.145"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="L6">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.001"/>
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      </inertial>
+      <visual name="A6">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.04 0.04 0.04"/>
+        </geometry>
+      </visual>
+    </link>
+    
+    <link name="tool0"/>
+    
+    <joint name="L1" type="revolute">
+      <origin xyz="0 0 0.63" rpy="0 0 0"/>
+      <parent link="base_link"/>
+      <child link="L1"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-3.14159" upper="3.14159" effort="2.76" velocity="3.39"/>
+    </joint>
+
+    <joint name="L2" type="revolute">
+      <origin xyz="0.175 0 0" rpy="1.5708 0 0"/>
+      <parent link="L1"/>
+      <child link="L2"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-2.268928028" upper="1.047197551" effort="2.76" velocity="3.39"/>
+    </joint>
+
+    <joint name="L3" type="revolute">
+      <origin xyz="0 0.905 0" rpy="0 0 0"/>
+      <parent link="L2"/>
+      <child link="L3"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-1.396263402" upper="2.879793266" effort="2.76" velocity="3.39"/>
+    </joint>
+
+    <joint name="L4" type="revolute">
+      <origin xyz="0 0.206 0" rpy="0 1.5708 0"/>
+      <parent link="L3"/>
+      <child link="L4"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-3.14159" upper="3.14159" effort="2.76" velocity="3.39"/>
+    </joint>
+
+    <joint name="L5" type="revolute">
+      <origin xyz="0 0 1.02" rpy="0 -1.5708 0"/>
+      <parent link="L4"/>
+      <child link="L5"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-2.181661565" upper="2.181661565" effort="2.76" velocity="3.39"/>
+    </joint>
+
+    <joint name="L6" type="revolute">
+      <origin xyz="0.205 0 0" rpy="0 1.5708 0"/>
+      <parent link="L5"/>
+      <child link="L6"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-6.108652382" upper="6.108652382" effort="2.76" velocity="3.39"/>
+    </joint>
+ 
+   <joint name="tcp_tool0" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="L6"/>
+    <child link="tool0"/>
+   </joint> 
+  
+    <material name="Material">
+      <color rgba="0.64 0.64 0.64 1.0"/>
+    </material>
+
+  </robot>
