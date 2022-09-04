@@ -34,11 +34,9 @@ def load_yaml(package_name, file_path):
 
 def generate_launch_description():
     
-    moveit_config = (
-        MoveItConfigsBuilder("SR80", package_name="sr80_moveit_config")
-        .robot_description(file_path="config/SR80.urdf.xacro")
-        .to_moveit_configs()
-    )
+    moveit_config = MoveItConfigsBuilder("SR80", package_name="sr80_moveit_config").to_moveit_configs()
+    
+    #   .robot_description(file_path="config/SR80.urdf.xacro")
     #   .robot_description_semantic(file_path="config/SR80.srdf")
     #   .planning_pipelines(pipelines=["ompl", "chomp"])
     #moveit_config = MoveItConfigsBuilder("SR80", package_name="sr80_config").to_moveit_configs()
@@ -61,7 +59,7 @@ def generate_launch_description():
     
     # RViz
     rviz_config_file = (
-        get_package_share_directory("sr80_moveit_config") + "/config/moveit.rviz"
+        get_package_share_directory("sr80_moveit_config") + "/config/moveit_servo.rviz"
     )
     rviz_node = Node(
         package="rviz2",
@@ -166,14 +164,13 @@ def generate_launch_description():
         output="screen",
     )
 
-    #print("[debug]",moveit_config.robot_description_semantic)
     return LaunchDescription(
         [
             rviz_node,
+            move_group_node,
             ros2_control_node,
             joint_state_broadcaster_spawner,
             sr80_arm_controller_spawner,
-            move_group_node,
             servo_node,
             container,
         ]

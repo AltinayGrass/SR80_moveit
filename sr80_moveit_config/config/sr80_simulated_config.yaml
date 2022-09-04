@@ -38,18 +38,18 @@ smoothing_filter_plugin_name: "online_signal_smoothing::ButterworthFilterPlugin"
 is_primary_planning_scene_monitor: true
 
 ## MoveIt properties
-move_group_name:  sr80_arm  # Often 'manipulator' or 'arm'
+move_group_name: sr80_arm  # Often 'manipulator' or 'arm'
 planning_frame: base_link  # The MoveIt planning frame. Often 'base_link' or 'world'
 
 ## Other frames
 ee_frame_name: tool0  # The name of the end effector link, used to return the EE pose
-robot_link_command_frame:  base_link  # commands must be given in the frame of a robot link. Usually either the base or end effector
+robot_link_command_frame: base_link  # commands must be given in the frame of a robot link. Usually either the base or end effector
 
 ## Stopping behaviour
 incoming_command_timeout:  0.1  # Stop servoing if X seconds elapse without a new command
 # If 0, republish commands forever even if the robot is stationary. Otherwise, specify num. to publish.
 # Important because ROS may drop some messages and we need the robot to halt reliably.
-num_outgoing_halt_msgs_to_publish: 4
+num_outgoing_halt_msgs_to_publish: 4 
 
 ## Configure handling of singularities and joint limits
 lower_singularity_threshold:  17.0  # Start decelerating when the condition number hits this (close to singularity)
@@ -63,6 +63,7 @@ joint_command_in_topic: ~/delta_joint_cmds # Topic for incoming joint angle comm
 joint_topic: /joint_states
 status_topic: ~/status # Publish status to this topic
 command_out_topic: /sr80_arm_controller/joint_trajectory # Publish outgoing commands here
+monitored_planning_scene_topic: /monitored_planning_scene
 
 ## Collision checking for the entire robot body
 check_collisions: true # Check collisions?
