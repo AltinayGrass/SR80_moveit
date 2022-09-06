@@ -171,7 +171,7 @@ def generate_launch_description():
             ros2_control_node,
             joint_state_broadcaster_spawner,
             sr80_arm_controller_spawner,
-            servo_node,
             container,
+            servo_node,
         ]
     )
