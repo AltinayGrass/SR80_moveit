@@ -106,49 +106,22 @@ def generate_launch_description():
         arguments=["sr80_arm_controller", "-c", "/controller_manager"],
     )
 
-    # Launch as much as possible in components
-    container = ComposableNodeContainer(
-        name="moveit_servo_demo_container",
-        namespace="/",
-        package="rclcpp_components",
-        executable="component_container_mt",
-        composable_node_descriptions=[
-            # Example of launching Servo as a node component
-            # Assuming ROS2 intraprocess communications works well, this is a more efficient way.
-            #ComposableNode(
-            #     package="moveit_servo",
-            #     plugin="moveit_servo::ServoServer",
-            #     name="servo_server",
-            #     parameters=[
-            #         servo_params,
-            #         moveit_config.robot_description,
-            #         moveit_config.robot_description_semantic,
-            #     ],
-            # ),
-            ComposableNode(
-                package="robot_state_publisher",
-                plugin="robot_state_publisher::RobotStatePublisher",
-                name="robot_state_publisher",
-                parameters=[moveit_config.robot_description],
-            ),
-            ComposableNode(
-                package="tf2_ros",
-                plugin="tf2_ros::StaticTransformBroadcasterNode",
-                name="static_tf2_broadcaster",
-                parameters=[{"child_frame_id": "/base_link", "frame_id": "/world"}],
-            ),
-            #ComposableNode(
-            #    package="moveit_servo",
-            #    plugin="moveit_servo::JoyToServoPub",
-            #    name="controller_to_servo_node",
-            #),
-            #ComposableNode(
-            #    package="joy",
-            #    plugin="joy::Joy",
-            #    name="joy_node",
-            #),
-        ],
+   # Static TF
+    static_tf_node = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        name="static_transform_publisher",
+        output="log",
+        arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "base_link"],
+    )
+
+    # Publish TF
+    robot_state_publisher = Node(
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
+        name="robot_state_publisher",
         output="screen",
+        parameters=[moveit_config.robot_description],
     )
     # Launch a standalone Servo node.
     # As opposed to a node component, this may be necessary (for example) if Servo is running on a different PC   
@@ -169,9 +142,11 @@ def generate_launch_description():
             rviz_node,
             move_group_node,
             ros2_control_node,
+            static_tf_node,
+            robot_state_publisher,
+            servo_node,
             joint_state_broadcaster_spawner,
             sr80_arm_controller_spawner,
-            container,
-            servo_node,
+            #container,
         ]
     )
