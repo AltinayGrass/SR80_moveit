@@ -2,12 +2,14 @@ import os
 import yaml
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 from ament_index_python.packages import get_package_share_directory
 from launch_ros.actions import ComposableNodeContainer
 from launch_ros.descriptions import ComposableNode
 from launch.actions import ExecuteProcess
 import xacro
 from moveit_configs_utils import MoveItConfigsBuilder
+from launch.substitutions import Command
 
 
 def load_file(package_name, file_path):
@@ -81,6 +83,7 @@ def generate_launch_description():
         "config",
         "ros2_controllers.yaml",
     )
+
     ros2_control_node = Node(
         package="controller_manager",
         executable="ros2_control_node",
@@ -93,8 +96,8 @@ def generate_launch_description():
         executable="spawner",
         arguments=[
             "joint_state_broadcaster",
-            "--controller-manager-timeout",
-            "300",
+            #"--controller-manager-timeout",
+            #"300",
             "--controller-manager",
             "/controller_manager",
         ],
@@ -114,15 +117,21 @@ def generate_launch_description():
         output="log",
         arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "base_link"],
     )
-
-    # Publish TF
+    
     robot_state_publisher = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
-        name="robot_state_publisher",
+        respawn=True,
+        #name="robot_state_publisher",
         output="screen",
-        parameters=[moveit_config.robot_description],
+        parameters=[
+            moveit_config.robot_description,
+            {
+                "publish_frequency": 15.0,
+            },
+        ]
     )
+
     # Launch a standalone Servo node.
     # As opposed to a node component, this may be necessary (for example) if Servo is running on a different PC   
     servo_node = Node(
