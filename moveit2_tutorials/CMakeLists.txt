@@ -1,45 +1,95 @@
 cmake_minimum_required(VERSION 3.8)
 project(moveit2_tutorials)
 
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
-endif()
+#if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+#  add_compile_options(-Wall -Wextra -Wpedantic)
+#endif()
 
-# find dependencies
-find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(geometry_msgs REQUIRED)
-find_package(control_msgs REQUIRED)
+find_package(moveit_common REQUIRED)
+
+moveit_package()
+
+set(THIS_PACKAGE_INCLUDE_DIRS
+  doc/interactivity/include
+)
+
+set(THIS_PACKAGE_INCLUDE_DEPENDS
+  ament_cmake
+  Boost
+  control_msgs
+  Eigen3
+  interactive_markers
+  moveit_core
+  moveit_msgs
+  moveit_ros_planning
+  moveit_ros_planning_interface
+  moveit_servo
+  pluginlib
+  rclcpp
+  rclcpp_action
+  tf2_geometry_msgs
+  tf2_geometry_msgs
+  tf2_ros
+)
+
+foreach(Dependency IN ITEMS ${THIS_PACKAGE_INCLUDE_DEPENDS})
+  find_package(${Dependency} REQUIRED)
+endforeach()
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+include_directories(${THIS_PACKAGE_INCLUDE_DIRS})
+
 add_executable(servo_keyboard_input src/servo_keyboard_input.cpp)
+target_include_directories(servo_keyboard_input PUBLIC include)
+#  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+#  $<INSTALL_INTERFACE:include>)
 ament_target_dependencies(
   servo_keyboard_input 
-  rclcpp 
-  control_msgs 
-  geometry_msgs)
-target_include_directories(servo_keyboard_input PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
-target_compile_features(servo_keyboard_input PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+  ${THIS_PACKAGE_INCLUDE_DEPENDS}
+  #rclcpp 
+  #control_msgs 
+  #geometry_msgs
+  )
 
-install(TARGETS 
-  servo_keyboard_input
-  DESTINATION lib/${PROJECT_NAME})
+target_include_directories(servo_keyboard_input PUBLIC include)
+#  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+#  $<INSTALL_INTERFACE:include>)
 
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # comment the line when a copyright and license is added to all source files
-  set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # comment the line when this package is in a git repo and when
-  # a copyright and license is added to all source files
-  set(ament_cmake_cpplint_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
-endif()
+#target_compile_features(servo_keyboard_input PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
+add_executable(robot_model_and_state src/robot_model_and_state.cpp)
+
+target_include_directories(robot_model_and_state PUBLIC include)
+#  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+#  $<INSTALL_INTERFACE:include>)
+
+ament_target_dependencies(
+    robot_model_and_state
+    ${THIS_PACKAGE_INCLUDE_DEPENDS}
+    #moveit_core
+    #moveit
+    #moveit_common
+    #Boost
+    )
+
+
+#target_compile_features(robot_model_and_state PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
+install(
+  TARGETS
+    servo_keyboard_input
+    robot_model_and_state  
+  DESTINATION 
+    lib/${PROJECT_NAME}
+)
+
+ament_export_dependencies(
+  ${THIS_PACKAGE_INCLUDE_DEPENDS}
+)
+
+ament_export_include_directories(include)
 
 ament_package()
