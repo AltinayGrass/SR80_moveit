@@ -2,14 +2,15 @@ import os
 import yaml
 from launch import LaunchDescription
 from launch_ros.actions import Node
-from launch_ros.parameter_descriptions import ParameterValue
+#from launch_ros.parameter_descriptions import ParameterValue
 from ament_index_python.packages import get_package_share_directory
-from launch_ros.actions import ComposableNodeContainer
-from launch_ros.descriptions import ComposableNode
-from launch.actions import ExecuteProcess
+#from launch_ros.actions import ComposableNodeContainer
+#from launch_ros.descriptions import ComposableNode
+#from launch.actions import ExecuteProcess
+#from launch.substitutions import LaunchConfiguration
 import xacro
 from moveit_configs_utils import MoveItConfigsBuilder
-from launch.substitutions import Command
+#from launch.substitutions import Command
 
 
 def load_file(package_name, file_path):
@@ -54,7 +55,10 @@ def generate_launch_description():
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
-        parameters=[moveit_config.to_dict()],
+        parameters=[
+            moveit_config.to_dict(),
+            moveit_config.robot_description_semantic,
+            ],
         arguments=["--ros-args", "--log-level", "info"],
     )
     ##
