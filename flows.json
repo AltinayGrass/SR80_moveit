@@ -1,0 +1,1632 @@
+[
+    {
+        "id": "251a0a8e49a53e8f",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fc49bf398d5ca5f3",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cc1970d2.60d8f",
+        "type": "ros-server",
+        "url": "ws://localhost:9090"
+    },
+    {
+        "id": "4806bc12f2d8bf16",
+        "type": "ui_tab",
+        "name": "SR_80",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6f5699908325bd5e",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#b0a6a6",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#b0a6a6",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#b0a6a6",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#d4cfcf",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#b0a6a6",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "6225d92e7b2aeba0",
+        "type": "ui_group",
+        "name": "Actual Postions",
+        "tab": "4806bc12f2d8bf16",
+        "order": 1,
+        "disp": true,
+        "width": "3",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "04ebae73af5c28a5",
+        "type": "ui_group",
+        "name": "Servo Joy",
+        "tab": "4806bc12f2d8bf16",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1785204d93efa6f5",
+        "type": "ui_group",
+        "name": "Velocities",
+        "tab": "4806bc12f2d8bf16",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7ed3321d25346dbf",
+        "type": "ui_group",
+        "name": "Pose",
+        "tab": "4806bc12f2d8bf16",
+        "order": 4,
+        "disp": true,
+        "width": "3",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e2f8ecb33e138ec8",
+        "type": "ui_tab",
+        "name": "Blockly",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "8db1877e94042029",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "e2f8ecb33e138ec8",
+        "order": 1,
+        "disp": false,
+        "width": "20",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8cea736aa077d5da",
+        "type": "ros-subscribe",
+        "z": "251a0a8e49a53e8f",
+        "server": "cc1970d2.60d8f",
+        "topicname": "/joint_states",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "3b9b53c1ee436ce2",
+                "f0f6fc7db936e783",
+                "0ff507f85838de50",
+                "f963851832b590ba",
+                "7defb3d01b74d2df",
+                "92318d4019f4fbc7",
+                "02754ecc479eda19",
+                "a477988a5557fa1c",
+                "abeee89f124ec94e",
+                "9540f887847ba906",
+                "b45f61d05f9a07ae",
+                "2f1eea6dac3c9486"
+            ]
+        ]
+    },
+    {
+        "id": "1fab6bd7a61c3248",
+        "type": "comment",
+        "z": "251a0a8e49a53e8f",
+        "name": "Subscribe",
+        "info": "",
+        "x": 90,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3b9b53c1ee436ce2",
+        "type": "ui_text",
+        "z": "251a0a8e49a53e8f",
+        "group": "6225d92e7b2aeba0",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "name": "",
+        "label": "A1",
+        "format": "{{msg.payload.position[0]*180/3.14 | number:3 }} &deg",
+        "layout": "row-spread",
+        "className": "",
+        "x": 490,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "f0f6fc7db936e783",
+        "type": "ui_text",
+        "z": "251a0a8e49a53e8f",
+        "group": "6225d92e7b2aeba0",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "A2",
+        "format": "{{msg.payload.position[1]*180/3.14 | number:3 }} &deg",
+        "layout": "row-spread",
+        "className": "",
+        "x": 490,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "0ff507f85838de50",
+        "type": "ui_text",
+        "z": "251a0a8e49a53e8f",
+        "group": "6225d92e7b2aeba0",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "A3",
+        "format": "{{msg.payload.position[2]*180/3.14 | number:3}} &deg",
+        "layout": "row-spread",
+        "className": "",
+        "x": 490,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "f963851832b590ba",
+        "type": "ui_text",
+        "z": "251a0a8e49a53e8f",
+        "group": "6225d92e7b2aeba0",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "A4",
+        "format": "{{msg.payload.position[3]*180/3.14 | number:3}} &deg",
+        "layout": "row-spread",
+        "className": "",
+        "x": 490,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "7defb3d01b74d2df",
+        "type": "ui_text",
+        "z": "251a0a8e49a53e8f",
+        "group": "6225d92e7b2aeba0",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "A5",
+        "format": "{{msg.payload.position[4]*180/3.14 | number:3}} &deg",
+        "layout": "row-spread",
+        "className": "",
+        "x": 490,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "92318d4019f4fbc7",
+        "type": "ui_text",
+        "z": "251a0a8e49a53e8f",
+        "group": "6225d92e7b2aeba0",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "A6",
+        "format": "{{msg.payload.position[5]*180/3.14 | number:3}} &deg",
+        "layout": "row-spread",
+        "className": "",
+        "x": 490,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "bfebbc8859b896a5",
+        "type": "ui_joystick",
+        "z": "251a0a8e49a53e8f",
+        "name": "XY",
+        "group": "04ebae73af5c28a5",
+        "order": 6,
+        "width": 3,
+        "height": 3,
+        "trigger": "all",
+        "timeInterval": "50",
+        "useThemeColor": true,
+        "color": "#000000",
+        "threshold": "0.1",
+        "directions": "all",
+        "shape": "circle",
+        "centerAtRelease": true,
+        "x": 110,
+        "y": 600,
+        "wires": [
+            [
+                "c6bbe4a9576672a5"
+            ]
+        ]
+    },
+    {
+        "id": "358b797aa9df8a66",
+        "type": "ros-publish",
+        "z": "251a0a8e49a53e8f",
+        "server": "cc1970d2.60d8f",
+        "topicname": "/servo_node/delta_twist_cmds",
+        "msgtype": "geometry_msgs/msg/TwistStamped",
+        "x": 850,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "152345ce6f2cde21",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "cs_xy",
+        "func": "\nvar twist ={\n    header:{\n        frame_id: \"tool0\",\n        stamp: {\n            nanosec: 1234,\n            sec: 1\n        }\n    },\n    twist:{\n        linear: {\n            x: msg.payload.vector.x,\n            y: msg.payload.vector.y,\n            z: 0.0\n        },\n        angular: {\n            x: 0.0,\n            y: 0.0,\n            z: 0.0\n        }\n    }\n};\n\nvar currentTime = new Date();\nvar secs = Math.floor(currentTime.getTime() / 1000);\nvar nsecs = Math.round(1000000000 * (currentTime.getTime() / 1000 - secs));\ntwist.header.stamp.sec = secs;\ntwist.header.stamp.nanosec = nsecs;\n\nmsg.payload=twist;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 620,
+        "wires": [
+            [
+                "358b797aa9df8a66"
+            ]
+        ]
+    },
+    {
+        "id": "88dac93d1deeb7fa",
+        "type": "ui_joystick",
+        "z": "251a0a8e49a53e8f",
+        "name": "Z",
+        "group": "04ebae73af5c28a5",
+        "order": 6,
+        "width": 3,
+        "height": 3,
+        "trigger": "all",
+        "timeInterval": "50",
+        "useThemeColor": true,
+        "color": "#000000",
+        "threshold": "0.1",
+        "directions": "ver",
+        "shape": "circle",
+        "centerAtRelease": true,
+        "x": 110,
+        "y": 720,
+        "wires": [
+            [
+                "3f46d7515015118b"
+            ]
+        ]
+    },
+    {
+        "id": "31474898ed4abda0",
+        "type": "ui_switch",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "label": "Linear (L1-3 ) < > Angular (L4-6)",
+        "tooltip": "",
+        "group": "04ebae73af5c28a5",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "payload",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 190,
+        "y": 400,
+        "wires": [
+            [
+                "8a06d21abd1c7b56"
+            ]
+        ]
+    },
+    {
+        "id": "d459fe1c250f1dae",
+        "type": "switch",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "property": "linear_angular",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 390,
+        "y": 600,
+        "wires": [
+            [
+                "9fcdc1025eb6a836"
+            ],
+            [
+                "152345ce6f2cde21"
+            ]
+        ]
+    },
+    {
+        "id": "9fcdc1025eb6a836",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "cs_RxRy",
+        "func": "\nvar twist = {\n    header:{\n        frame_id: \"tool0\",\n        stamp: {\n            nanosec: 1234,\n            sec: 1\n        }\n    },\n    twist:{\n        linear: {\n            x: 0.0,\n            y: 0.0,\n            z: 0.0\n        },\n        angular: {\n            x: msg.payload.vector.x,\n            y: msg.payload.vector.y,\n            z: 0.0\n        }\n    }\n};\n\nvar currentTime = new Date();\nvar secs = Math.floor(currentTime.getTime() / 1000);\nvar nsecs = Math.round(1000000000 * (currentTime.getTime() / 1000 - secs));\ntwist.header.stamp.sec = secs;\ntwist.header.stamp.nanosec = nsecs;\n\n\nmsg.payload=twist;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 560,
+        "wires": [
+            [
+                "358b797aa9df8a66"
+            ]
+        ]
+    },
+    {
+        "id": "8a06d21abd1c7b56",
+        "type": "change",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "linear_angular",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1568b993775eb078",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "cs_Rz",
+        "func": "\nvar twist ={\n    header:{\n        frame_id: \"tool0\",\n        stamp: {\n            nanosec: 1234,\n            sec: 1\n        }\n    },\n    twist:{\n        linear: {\n            x: 0.0,\n            y: 0.0,\n            z: 0.0\n        },\n        angular: {\n            x: 0.0,\n            y: 0.0,\n            z: msg.payload.vector.y\n        }\n    }\n};\n\nvar currentTime = new Date();\nvar secs = Math.floor(currentTime.getTime() / 1000);\nvar nsecs = Math.round(1000000000 * (currentTime.getTime() / 1000 - secs));\ntwist.header.stamp.sec = secs;\ntwist.header.stamp.nanosec = nsecs;\n\nmsg.payload=twist;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 700,
+        "wires": [
+            [
+                "358b797aa9df8a66"
+            ]
+        ]
+    },
+    {
+        "id": "368a3bef21c03fbd",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "cs_z",
+        "func": "\nvar twist ={\n    header:{\n        frame_id: \"tool0\",\n        stamp: {\n            nanosec: 1234,\n            sec: 1\n        }\n    },\n    twist:{\n        linear: {\n            x: 0.0,\n            y: 0.0,\n            z: msg.payload.vector.y\n        },\n        angular: {\n            x: 0.0,\n            y: 0.0,\n            z: 0.0\n        }\n    }\n};\n\nvar currentTime = new Date();\nvar secs = Math.floor(currentTime.getTime() / 1000);\nvar nsecs = Math.round(1000000000 * (currentTime.getTime() / 1000 - secs));\ntwist.header.stamp.sec = secs;\ntwist.header.stamp.nanosec = nsecs;\n\nmsg.payload=twist;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 760,
+        "wires": [
+            [
+                "358b797aa9df8a66"
+            ]
+        ]
+    },
+    {
+        "id": "6bce9461fb4893da",
+        "type": "switch",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "property": "linear_angular",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 370,
+        "y": 740,
+        "wires": [
+            [
+                "1568b993775eb078"
+            ],
+            [
+                "368a3bef21c03fbd"
+            ]
+        ]
+    },
+    {
+        "id": "faa49872b7275542",
+        "type": "ros-call-service",
+        "z": "251a0a8e49a53e8f",
+        "server": "cc1970d2.60d8f",
+        "servicename": "/servo_node/stop_servo",
+        "srvtype": "/std_srvs/srv/Trigger",
+        "x": 410,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "be777d3e1d7feae5",
+        "type": "ros-call-service",
+        "z": "251a0a8e49a53e8f",
+        "server": "cc1970d2.60d8f",
+        "servicename": "/servo_node/start_servo",
+        "srvtype": "/std_srvs/srv/Trigger",
+        "x": 410,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a45953ef34749aed",
+        "type": "ui_button",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "group": "04ebae73af5c28a5",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Stop Servo",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 130,
+        "y": 940,
+        "wires": [
+            [
+                "faa49872b7275542"
+            ]
+        ]
+    },
+    {
+        "id": "a747908d2d9638c8",
+        "type": "ui_button",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "group": "04ebae73af5c28a5",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Start Servo",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 130,
+        "y": 1000,
+        "wires": [
+            [
+                "be777d3e1d7feae5"
+            ]
+        ]
+    },
+    {
+        "id": "96224afabf0faa27",
+        "type": "change",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "js_cs",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d73c159e4a9e14a2",
+        "type": "ui_switch",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "label": "CS  < >  (JS)",
+        "tooltip": "",
+        "group": "04ebae73af5c28a5",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "payload",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "96224afabf0faa27"
+            ]
+        ]
+    },
+    {
+        "id": "c6bbe4a9576672a5",
+        "type": "switch",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "property": "js_cs",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 250,
+        "y": 540,
+        "wires": [
+            [
+                "09f44958a2adddc6"
+            ],
+            [
+                "d459fe1c250f1dae"
+            ]
+        ]
+    },
+    {
+        "id": "3f46d7515015118b",
+        "type": "switch",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "property": "js_cs",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 250,
+        "y": 800,
+        "wires": [
+            [
+                "f98218c8c9066769"
+            ],
+            [
+                "6bce9461fb4893da"
+            ]
+        ]
+    },
+    {
+        "id": "09f44958a2adddc6",
+        "type": "switch",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "property": "linear_angular",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 670,
+        "y": 500,
+        "wires": [
+            [
+                "1adb4c6a4df00c1c"
+            ],
+            [
+                "59fde116b009cdad"
+            ]
+        ]
+    },
+    {
+        "id": "f98218c8c9066769",
+        "type": "switch",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "property": "linear_angular",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 670,
+        "y": 820,
+        "wires": [
+            [
+                "acba7fec107d49bb"
+            ],
+            [
+                "77e42d78f8b3d4df"
+            ]
+        ]
+    },
+    {
+        "id": "514809138f127775",
+        "type": "ros-publish",
+        "z": "251a0a8e49a53e8f",
+        "server": "cc1970d2.60d8f",
+        "topicname": "/servo_node/delta_joint_cmds",
+        "msgtype": "control_msgs/msg/JointJog",
+        "x": 1210,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "59fde116b009cdad",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "js_L1L2",
+        "func": "var x = msg.payload.vector.x;\nvar y = msg.payload.vector.y;\n\nif (Math.abs(x)>= Math.abs(y))\n{\n    var joint_msg = {\n        header:{\n            frame_id: \"base_link\",\n            stamp: {\n                nanosec: 1234,\n                sec: 1\n            }\n        },\n        joint_names: [\"L1\"],\n        velocities: [x]\n    };\n}\nelse\n{\n    var joint_msg = {\n        header: {\n            frame_id: \"base_link\",\n            stamp: {\n                nanosec: 1234,\n                sec: 1\n            }\n        },\n        joint_names: [\"L2\"],\n        velocities: [y]\n    };\n}\n\nvar currentTime = new Date();\nvar secs = Math.floor(currentTime.getTime() / 1000);\nvar nsecs = Math.round(1000000000 * (currentTime.getTime() / 1000 - secs));\njoint_msg.header.stamp.sec = secs;\njoint_msg.header.stamp.nanosec = nsecs;\n\n//node.warn(joint_msg);\n\nmsg.payload=joint_msg;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 580,
+        "wires": [
+            [
+                "514809138f127775"
+            ]
+        ]
+    },
+    {
+        "id": "1adb4c6a4df00c1c",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "js_L4L5",
+        "func": "var x = msg.payload.vector.x*1.0;\nvar y = msg.payload.vector.y*1.0;\n\nif (Math.abs(x) >= Math.abs(y)) {\n    var joint_msg = {\n        header: {\n            frame_id: \"base_link\",\n            stamp: {\n                nanosec: 1234,\n                sec: 1\n            }\n        },\n        joint_names: [\"L4\"],\n        velocities: [x]\n    };\n}\nelse {\n    var joint_msg = {\n        header: {\n            frame_id: \"base_link\",\n            stamp: {\n                nanosec: 1234,\n                sec: 1\n            }\n        },\n        joint_names: [\"L5\"],\n        velocities: [y]\n    };\n}\n\nvar currentTime = new Date();\nvar secs = Math.floor(currentTime.getTime() / 1000);\nvar nsecs = Math.round(1000000000 * (currentTime.getTime() / 1000 - secs));\njoint_msg.header.stamp.sec = secs;\njoint_msg.header.stamp.nanosec = nsecs;\n\nmsg.payload=joint_msg;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 540,
+        "wires": [
+            [
+                "514809138f127775"
+            ]
+        ]
+    },
+    {
+        "id": "77e42d78f8b3d4df",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "js_L3",
+        "func": "const y = msg.payload.vector.y;\n\nvar joint_msg ={\n    header:{\n        frame_id: \"base_link\",\n        stamp: {\n            nanosec: 1234,\n            sec: 1\n        }\n    },\n    joint_names: [\"L3\"],\n    velocities: [y]\n};\n\nvar currentTime = new Date();\nvar secs = Math.floor(currentTime.getTime() / 1000);\nvar nsecs = Math.round(1000000000 * (currentTime.getTime() / 1000 - secs));\njoint_msg.header.stamp.sec = secs;\njoint_msg.header.stamp.nanosec = nsecs;\n\nmsg.payload=joint_msg;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 800,
+        "wires": [
+            [
+                "514809138f127775"
+            ]
+        ]
+    },
+    {
+        "id": "acba7fec107d49bb",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "js_L6",
+        "func": "const y = msg.payload.vector.y;\n\nvar joint_msg ={\n    header:{\n        frame_id: \"base_link\",\n        stamp: {\n            nanosec: 1234,\n            sec: 1\n        }\n    },\n    joint_names: [\"L6\"],\n    velocities: [y]\n};\n\nvar currentTime = new Date();\nvar secs = Math.floor(currentTime.getTime() / 1000);\nvar nsecs = Math.round(1000000000 * (currentTime.getTime() / 1000 - secs));\njoint_msg.header.stamp.sec = secs;\njoint_msg.header.stamp.nanosec = nsecs;\n\nmsg.payload=joint_msg;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 760,
+        "wires": [
+            [
+                "514809138f127775"
+            ]
+        ]
+    },
+    {
+        "id": "02754ecc479eda19",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "vel1",
+        "func": "\nmsg.topic = \"L1\";\nmsg.payload= msg.payload.velocity[0];\n\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 160,
+        "wires": [
+            [
+                "3a0f2fabb8b7b94b"
+            ]
+        ]
+    },
+    {
+        "id": "3a0f2fabb8b7b94b",
+        "type": "ui_gauge",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "group": "1785204d93efa6f5",
+        "order": 6,
+        "width": "3",
+        "height": "2",
+        "gtype": "gage",
+        "title": "L1 vel",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-0.6",
+        "max": "0.6",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 870,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "401cc233a40d4d9d",
+        "type": "ros-call-service",
+        "z": "251a0a8e49a53e8f",
+        "server": "cc1970d2.60d8f",
+        "servicename": "/compute_fk",
+        "srvtype": "/moveit_msgs/srv/GetPositionFK",
+        "x": 750,
+        "y": 100,
+        "wires": [
+            [
+                "62bf5edf8a27bedb"
+            ]
+        ]
+    },
+    {
+        "id": "62bf5edf8a27bedb",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "function 2",
+        "func": "//node.warn(msg.payload.pose_stamped);\nmsg.payload=\n     \"x:\" + msg.payload.pose_stamped[0].pose.position.x + \n    \" y:\" + msg.payload.pose_stamped[0].pose.position.y + \n    \" z:\" + msg.payload.pose_stamped[0].pose.position.z;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 100,
+        "wires": [
+            [
+                "15919e04024ab5ba"
+            ]
+        ]
+    },
+    {
+        "id": "6ad90383d2e2ab17",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "function 3",
+        "func": "\nvar service_req = {\n    header: {\n        frame_id: \"base_link\",\n        stamp: {\n            nanosec: 1234,\n            sec: 1\n        },\n    },\n    fk_link_names: [\"tool0\"],\n    robot_state:{\n        joint_state:{\n        name:[\"L1\",\"L2\",\"L3\",\"L4\",\"L5\",\"L6\"]\n        }\n    }\n};\n\nvar currentTime = new Date();\nvar secs = Math.floor(currentTime.getTime() / 1000);\nvar nsecs = Math.round(1000000000 * (currentTime.getTime() / 1000 - secs));\nservice_req.header.stamp.sec = secs;\nservice_req.header.stamp.nanosec = nsecs;\n\nservice_req.robot_state.joint_state.position=msg.payload.position\nmsg.payload=service_req\n\n//node.warn(msg.payload);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 100,
+        "wires": [
+            [
+                "401cc233a40d4d9d"
+            ]
+        ]
+    },
+    {
+        "id": "6a259d7b26e16d11",
+        "type": "ros-subscribe",
+        "z": "251a0a8e49a53e8f",
+        "server": "cc1970d2.60d8f",
+        "topicname": "/tf",
+        "x": 90,
+        "y": 1120,
+        "wires": [
+            [
+                "a97564fd70e08c20"
+            ]
+        ]
+    },
+    {
+        "id": "a97564fd70e08c20",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "function 4",
+        "func": "//const ROSLIB = global.get('roslib')\nvar t = new Array\n\nvar tresult = new ROSLIB.Pose({\n    position: {\n        x: 0,\n        y: 0,\n        z: 0\n    },\n    orientation: {\n        x: 0,\n        y: 0,\n        z: 0,\n        w: 1,\n    }\n});\n\nfor (let i=0;i<6;i++) {\n    t[i] = new ROSLIB.Pose({\n        position: {\n            x: msg.payload.transforms[i].transform.translation.x,\n            y: msg.payload.transforms[i].transform.translation.y,\n            z: msg.payload.transforms[i].transform.translation.z\n        },\n        orientation: {\n            x: msg.payload.transforms[i].transform.rotation.x,\n            y: msg.payload.transforms[i].transform.rotation.y,\n            z: msg.payload.transforms[i].transform.rotation.z,\n            w: msg.payload.transforms[i].transform.rotation.w\n        }\n    });    \n    if (i>1) {\n        tresult=tresult.multiply(t[i])\n    }else {\n        if(i==1) tresult=t[0].multiply(t[1])\n    }\n}\n\n//node.warn(\"x:\"+tresult.position.x+\"y:\"+tresult.position.y+\"z:\"+tresult.position.z)\n\nmsg.payload = \"x:\" + tresult.position.x.toFixed(3) + \n    \" y:\" + tresult.position.y.toFixed(3) + \n    \" z:\" + tresult.position.z.toFixed(3) +\n    \" q1:\" + tresult.orientation.x.toFixed(4) +\n    \" q2:\" + tresult.orientation.y.toFixed(4) +\n    \" q3:\" + tresult.orientation.z.toFixed(4) +\n    \" q4:\" + tresult.orientation.w.toFixed(4) \n        ;\nmsg.payload=tresult\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "ROSLIB",
+                "module": "roslib"
+            }
+        ],
+        "x": 300,
+        "y": 1120,
+        "wires": [
+            [
+                "f34407559cd20fb4",
+                "16faa96a2533ffd4",
+                "acf1680d3006e7cf",
+                "1a64b7c5a0247b80",
+                "3b5ff61309601863",
+                "62e4cfd317acf03a",
+                "597a547647178bad"
+            ]
+        ]
+    },
+    {
+        "id": "a61b38e3928b0e18",
+        "type": "delay",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 100,
+        "wires": [
+            [
+                "6ad90383d2e2ab17"
+            ]
+        ]
+    },
+    {
+        "id": "15919e04024ab5ba",
+        "type": "ui_text",
+        "z": "251a0a8e49a53e8f",
+        "group": "7ed3321d25346dbf",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1090,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "f34407559cd20fb4",
+        "type": "ui_text",
+        "z": "251a0a8e49a53e8f",
+        "group": "7ed3321d25346dbf",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "X",
+        "format": "{{msg.payload.position.x | number:3}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 450,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "7393b187921b3892",
+        "type": "exec",
+        "z": "251a0a8e49a53e8f",
+        "command": "ros2 run pymoveit2 ex_joint_goal.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 570,
+        "y": 1460,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "cc3602a2801bd604",
+        "type": "ui_text_input",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "7ed3321d25346dbf",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 80,
+        "y": 1400,
+        "wires": [
+            [
+                "c10cd73172a731fa"
+            ]
+        ]
+    },
+    {
+        "id": "16faa96a2533ffd4",
+        "type": "ui_text",
+        "z": "251a0a8e49a53e8f",
+        "group": "7ed3321d25346dbf",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Y",
+        "format": "{{msg.payload.position.y | number:3}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 450,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "acf1680d3006e7cf",
+        "type": "ui_text",
+        "z": "251a0a8e49a53e8f",
+        "group": "7ed3321d25346dbf",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Z",
+        "format": "{{msg.payload.position.z | number:3}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 450,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "1a64b7c5a0247b80",
+        "type": "ui_text",
+        "z": "251a0a8e49a53e8f",
+        "group": "7ed3321d25346dbf",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Q1",
+        "format": "{{msg.payload.orientation.x | number:4}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 450,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "3b5ff61309601863",
+        "type": "ui_text",
+        "z": "251a0a8e49a53e8f",
+        "group": "7ed3321d25346dbf",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Q2",
+        "format": "{{msg.payload.orientation.y | number:4}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 450,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "62e4cfd317acf03a",
+        "type": "ui_text",
+        "z": "251a0a8e49a53e8f",
+        "group": "7ed3321d25346dbf",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Q3",
+        "format": "{{msg.payload.orientation.z | number:4}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 450,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "597a547647178bad",
+        "type": "ui_text",
+        "z": "251a0a8e49a53e8f",
+        "group": "7ed3321d25346dbf",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Q4",
+        "format": "{{msg.payload.orientation.w | number:4}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 450,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "19d748756d9d7606",
+        "type": "debug",
+        "z": "251a0a8e49a53e8f",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "64c6ccce3808e17f",
+        "type": "ui_gauge",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "group": "1785204d93efa6f5",
+        "order": 6,
+        "width": "3",
+        "height": "2",
+        "gtype": "gage",
+        "title": "L2 vel",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-0.6",
+        "max": "0.6",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 870,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a477988a5557fa1c",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "vel2",
+        "func": "\nmsg.topic = \"L2\";\nmsg.payload= msg.payload.velocity[1];\n\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 200,
+        "wires": [
+            [
+                "64c6ccce3808e17f"
+            ]
+        ]
+    },
+    {
+        "id": "abeee89f124ec94e",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "vel3",
+        "func": "\nmsg.topic = \"L3\";\nmsg.payload= msg.payload.velocity[2];\n\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 240,
+        "wires": [
+            [
+                "19b3490d4962ab8e"
+            ]
+        ]
+    },
+    {
+        "id": "19b3490d4962ab8e",
+        "type": "ui_gauge",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "group": "1785204d93efa6f5",
+        "order": 6,
+        "width": "3",
+        "height": "2",
+        "gtype": "gage",
+        "title": "L3 vel",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-0.6",
+        "max": "0.6",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 870,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "9540f887847ba906",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "vel4",
+        "func": "\nmsg.topic = \"L4\";\nmsg.payload= msg.payload.velocity[3];\n\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 280,
+        "wires": [
+            [
+                "cdf7418eed6c0b85"
+            ]
+        ]
+    },
+    {
+        "id": "cdf7418eed6c0b85",
+        "type": "ui_gauge",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "group": "1785204d93efa6f5",
+        "order": 6,
+        "width": "3",
+        "height": "2",
+        "gtype": "gage",
+        "title": "L4 vel",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-0.6",
+        "max": "0.6",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 870,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "d606b373e86e5653",
+        "type": "ui_gauge",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "group": "1785204d93efa6f5",
+        "order": 6,
+        "width": "3",
+        "height": "2",
+        "gtype": "gage",
+        "title": "L5 vel",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-0.6",
+        "max": "0.6",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 870,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b45f61d05f9a07ae",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "vel5",
+        "func": "\nmsg.topic = \"L5\";\nmsg.payload= msg.payload.velocity[4];\n\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 320,
+        "wires": [
+            [
+                "d606b373e86e5653"
+            ]
+        ]
+    },
+    {
+        "id": "f22c73498f4130e1",
+        "type": "ui_gauge",
+        "z": "251a0a8e49a53e8f",
+        "name": "",
+        "group": "1785204d93efa6f5",
+        "order": 6,
+        "width": "3",
+        "height": "2",
+        "gtype": "gage",
+        "title": "L6 vel",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-0.6",
+        "max": "0.6",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 870,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "2f1eea6dac3c9486",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "vel6",
+        "func": "\nmsg.topic = \"L6\";\nmsg.payload= msg.payload.velocity[5];\n\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 360,
+        "wires": [
+            [
+                "f22c73498f4130e1"
+            ]
+        ]
+    },
+    {
+        "id": "c10cd73172a731fa",
+        "type": "function",
+        "z": "251a0a8e49a53e8f",
+        "name": "function 5",
+        "func": "msg.payload = ' --ros-args -p joint_positions:=\"[' + msg.payload + ']\"';\nconsole.warn(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 1400,
+        "wires": [
+            [
+                "7393b187921b3892",
+                "19d748756d9d7606"
+            ]
+        ]
+    },
+    {
+        "id": "51da592f6a039a4f",
+        "type": "inject",
+        "z": "fc49bf398d5ca5f3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "831796985e3e6ca3"
+            ]
+        ]
+    },
+    {
+        "id": "3efe12d560d1ea54",
+        "type": "template",
+        "z": "fc49bf398d5ca5f3",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<iframe src={{{payload.url}}} height=657px width=1057px></iframe>",
+        "output": "str",
+        "x": 500,
+        "y": 80,
+        "wires": [
+            [
+                "ac55ec42fecacdd6"
+            ]
+        ]
+    },
+    {
+        "id": "ac55ec42fecacdd6",
+        "type": "ui_template",
+        "z": "fc49bf398d5ca5f3",
+        "group": "8db1877e94042029",
+        "name": "Blocks",
+        "order": 6,
+        "width": "20",
+        "height": "13",
+        "format": "<div ng-bind-html=\"msg.payload | trusted\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 670,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "831796985e3e6ca3",
+        "type": "function",
+        "z": "fc49bf398d5ca5f3",
+        "name": "Inject /localhost/blockly",
+        "func": "msg.payload =   {\n    url: \"http://127.0.0.1:1880/blockly/\",\n                };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "3efe12d560d1ea54"
+            ]
+        ]
+    }
+]
