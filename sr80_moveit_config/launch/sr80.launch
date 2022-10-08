@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+
+     <!-- send robot urdf to param server -->
+  
+  <param name="robot_description" textfile="$(find sr80_description)/urdf/sr80_wm.urdf" />
+
+  <include file="$(find sr80_moveit_config)/launch/controller_utils.launch"/>
+
+  <!-- start this controller -->
+  <rosparam file="$(find sr80_moveit_config)/config/ros_controllers.yaml" command="load"/>
+  <node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn vel_controller" respawn="false" output="screen"/>
+
+  <!-- load other controllers -->
+  <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="load pos_controller" />
+
+</launch>
