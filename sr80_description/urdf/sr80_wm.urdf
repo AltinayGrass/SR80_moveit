@@ -178,7 +178,7 @@
       </collision>
     </link>
 
-    <link name="L6">
+    <link name="flange">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="0.001"/>
@@ -191,8 +191,6 @@
         </geometry>
       </visual>
     </link>
-    
-    <link name="tool0"/>
     
     <joint name="J1" type="revolute">
       <origin xyz="0 0 0.63" rpy="0 0 0"/>
@@ -237,17 +235,40 @@
     <joint name="J6" type="revolute">
       <origin xyz="0.205 0 0" rpy="0 1.5708 0"/>
       <parent link="L5"/>
-      <child link="L6"/>
+      <child link="flange"/>
       <axis xyz="0 0 1.0"/>
       <limit lower="-6.108652382" upper="6.108652382" effort="2.76" velocity="3.39"/>
     </joint>
- 
-   <joint name="tcp_tool0" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="L6"/>
-    <child link="tool0"/>
-   </joint> 
-  
+     
+    <!-- ROS-Industrial 'base' frame: base_link to robot world coordinate sytem transform -->
+    <link name="base0" />
+    <joint name="base_link-base" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <parent link="base_link" />
+        <child link="base0" />
+    </joint>
+    <!-- ROS-Industrial 'tool0' frame: all-zeros tool frame -->
+    <link name="tool0" />
+    <joint name="flange-tool0" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <parent link="flange" />
+        <child link="tool0" />
+    </joint>
+
+    <link name="world" />
+    <joint name="world-base_link-fixed" type="fixed">
+        <parent link="world" />
+        <child link="base_link" />
+    </joint>
+    <!-- TCP -->
+    <joint name="fixed_joint_tcp" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <!-- tcp offset from last link -->
+        <parent link="flange" />
+        <child link="tcp" />
+    </joint>
+    <link name="tcp" />
+
     <material name="Material">
       <color rgba="0.64 0.64 0.64 1.0"/>
     </material>
