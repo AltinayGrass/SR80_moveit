@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<library path="lib/libsr80_manipulator_moveit_ikfast_plugin">
+  <class name="sr80_manipulator/IKFastKinematicsPlugin" type="sr80_manipulator::IKFastKinematicsPlugin" base_class_type="kinematics::KinematicsBase">
+    <description>IKFast61 plugin for closed-form kinematics of sr80 manipulator</description>
+  </class>
+</library>
