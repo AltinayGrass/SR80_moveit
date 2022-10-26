@@ -3,8 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var bodyParser = require('body-parser')
-var fs = require('fs')
+var bodyParser = require('body-parser');
+var fs = require('fs');
+const { exec } = require('child_process');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -30,7 +31,7 @@ app.post('/post-test',(req,res)=>{
   '\n' +
 '# main program\n'+
 'def start_program():\n'+
-'  print(r.get_current_pose()) # print the current position of thr robot in the terminal\n'
+'  print(r.get_current_pose(target_link="flange",base="base_link")) # print the current position of thr robot in the terminal\n';
 let complatewith = 
 '\n'+
 'if __name__ == "__main__":\n'+
@@ -39,34 +40,38 @@ let complatewith =
 '    # initialisation\n'+
 '    r = Robot(__REQUIRED_API_VERSION__)  # instance of the robot\n'+
 '    # start the main program\n'+
-'    start_program()\n'
+'    start_program()\n';
 
 var result = req.body.code.split(/\r?\n/);
 
 for (let index = 0; index < result.length; index++) {
   const element = result[index];
-  result[index]= ' '.repeat(2)+ element
+  result[index]= ' '.repeat(2)+ element;
 }
 
-prog=entrywith+result.join('\n')+complatewith
-console.log(prog) 
+prog=entrywith+result.join('\n')+complatewith;
+console.log(prog); 
 
-var script_name='/root/ws_moveit/src/pilz_tutorial/scripts/test.py'
+var script_name='/root/ws_moveit/src/pilz_tutorial/scripts/test.py';
 
 try {
   fs.writeFileSync(script_name, prog);
   // file written successfully
-} catch (err) {
-  console.error(err);
-}
-try {
   fs.chmodSync(script_name, "755");
+  exec ('rosrun pilz_tutorial test.py', (err, stdout, stderr) => {
+    if (err) {
+      console.error(`exec error: ${err}`);
+      return;
+    }
+    console.log(`Result ${stdout}`);
+  });
 } catch (err) {
   console.error(err);
 }
 
 //res.sendStatus(200);
 })
+
 
 app.use(logger('dev'));
 app.use(express.json());
