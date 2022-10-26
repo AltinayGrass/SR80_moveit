@@ -117,7 +117,7 @@
     transThres : 0.01
   });
 
-  tfClient.subscribe('L6', function(tf) {
+  tfClient.subscribe('flange', function(tf) {
     console.log(tf.translation.x,tf.translation.y,tf.translation.z);
   });
 
@@ -225,7 +225,11 @@
                 var text_joints = block.getFieldValue('joints');
                 var text_vel = block.getFieldValue('vel');
                 // TODO: Assemble Python into code variable.
-                var code = 'r.move(Ptp(goal=['+text_joints+'], '+ dropdown_relative + 'vel_scale='+ text_vel/100 +'))\n';
+                var code = 'r.move(Ptp(goal=[' + text_joints+ '], ' + 
+                                      dropdown_relative + 
+                                      'vel_scale= ' + text_vel/100 +  
+                                      ', target_link="flange", reference_frame="base_link"' +
+                                      ' ))\n' ;
                 return code;
               };
 
