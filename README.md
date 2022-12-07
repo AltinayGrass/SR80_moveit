@@ -1,9 +1,9 @@
 # SR80_moveit
 ros noetic moveit workspace
 
-`docker start mynodered`
+`start-docker.sh noetic` ip ws://172.17.0.2:9090
 
-`start-docker.sh noetic`
+`docker start mynodered`  ip 172.17.0.3:1880 --> localhost:1880
 
 `terminator`
 
@@ -11,13 +11,9 @@ ros noetic moveit workspace
 
 `DEBUG grass:* npm start`
 
--- splip terminal to 4 --
+-- splip terminal to 3 --
 
 `roslaunch rosbridge_server rosbridge_websocket.launch`
 
-`rosrun tf2_web_republisher tf2_web_republisher`
-
 `roslaunch sr80_moveit_config_new demo_gazebo.launch`
-
-`roslaunch sr80_moveit_config_new sr80_servo.launch`
 
