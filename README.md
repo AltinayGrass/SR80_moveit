@@ -1,6 +1,8 @@
 # SR80_moveit
 ros noetic moveit workspace
 
+`docker start mynodered`
+
 `start-docker.sh noetic`
 
 `terminator`
